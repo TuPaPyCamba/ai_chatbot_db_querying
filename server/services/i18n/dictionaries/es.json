@@ -1,0 +1,47 @@
+{
+  "navbar": {
+    "title": "ChatSphere AI",
+    "dashboard": "Tablero",
+    "signin": "Iniciar Sesión",
+    "signup": "Registrarse",
+    "logout": "Cerrar Sesión",
+    "theme": "Cambiar Tema"
+  },
+  "landing": {
+    "heroTitle": "Experimenta la Próxima Generación de Chat de IA",
+    "heroSubtitle": "Participa en conversaciones inteligentes y contextuales, consulta datos dinámicamente y simplifica tus tareas con ChatSphere.",
+    "getStarted": "Comenzar Gratis",
+    "chatNow": "Chatear Ahora",
+    "features": "¿Por qué elegir ChatSphere?",
+    "feature1Title": "Conversaciones Naturales",
+    "feature1Desc": "Memoria de contexto avanzada que hace que cada interacción se sienta humana y fluida.",
+    "feature2Title": "Arquitectura de Microservicios",
+    "feature2Desc": "Backend extremadamente modular diseñado para escalabilidad empresarial y facilidad de desarrollo.",
+    "feature3Title": "Súper Rápido",
+    "feature3Desc": "Rendimiento optimizado con Next.js App Router y contenedores Docker independientes."
+  },
+  "auth": {
+    "signinTitle": "Bienvenido de Nuevo",
+    "signupTitle": "Crea tu Cuenta",
+    "email": "Dirección de Correo",
+    "password": "Contraseña",
+    "name": "Nombre Completo",
+    "namePlaceholder": "Juan Pérez",
+    "emailPlaceholder": "tu@ejemplo.com",
+    "passwordPlaceholder": "••••••••",
+    "signinButton": "Iniciar Sesión",
+    "signupButton": "Crear Cuenta",
+    "needAccount": "¿No tienes una cuenta?",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "authError": "Credenciales inválidas. Por favor intente de nuevo."
+  },
+  "dashboard": {
+    "welcome": "¡Bienvenido a ChatSphere!",
+    "chatPlaceholder": "Pregúntame lo que quieras...",
+    "send": "Enviar",
+    "history": "Historial de Chat",
+    "emptyHistory": "No hay chats anteriores.",
+    "newChat": "Nueva Conversación",
+    "logoutButton": "Cerrar Sesión"
+  }
+}

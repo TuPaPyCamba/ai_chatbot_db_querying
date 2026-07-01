@@ -1,0 +1,47 @@
+{
+  "navbar": {
+    "title": "ChatSphere AI",
+    "dashboard": "Dashboard",
+    "signin": "Sign In",
+    "signup": "Sign Up",
+    "logout": "Log Out",
+    "theme": "Toggle Theme"
+  },
+  "landing": {
+    "heroTitle": "Experience the Next Generation of AI Chat",
+    "heroSubtitle": "Engage in intelligent, contextual conversations, query data dynamically, and simplify your daily workflows with ChatSphere.",
+    "getStarted": "Get Started Free",
+    "chatNow": "Chat Now",
+    "features": "Why Choose ChatSphere?",
+    "feature1Title": "Natural Conversations",
+    "feature1Desc": "Advanced contextual memory that makes every interaction feel human and smooth.",
+    "feature2Title": "Microservice Architecture",
+    "feature2Desc": "Extremely modular backend designed for enterprise scalability and ease of deployment.",
+    "feature3Title": "Lightning Fast",
+    "feature3Desc": "Optimized performance with Next.js App Router and standalone container builds."
+  },
+  "auth": {
+    "signinTitle": "Welcome Back",
+    "signupTitle": "Create your Account",
+    "email": "Email Address",
+    "password": "Password",
+    "name": "Full Name",
+    "namePlaceholder": "John Doe",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "signinButton": "Sign In",
+    "signupButton": "Create Account",
+    "needAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "authError": "Invalid credentials. Please try again."
+  },
+  "dashboard": {
+    "welcome": "Welcome to ChatSphere!",
+    "chatPlaceholder": "Ask me anything...",
+    "send": "Send",
+    "history": "Chat History",
+    "emptyHistory": "No previous chats.",
+    "newChat": "New Conversation",
+    "logoutButton": "Log Out"
+  }
+}
