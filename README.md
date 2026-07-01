@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Chatbot Architecture Skeleton 🤖
 
-## Getting Started
+This project is a fully structured, full-stack Next.js web application designed as the foundation for an AI-powered chatbot. It enforces strict structural patterns for both the frontend (App Router) and the backend (API routes), ensuring modularity, scalability, and clean code separation.
 
-First, run the development server:
+> **🚧 Development State:** Currently, all database connections and authentication flows are **mocked**. This skeleton focuses on structural integrity, UI orchestration, and routing before integrating real data persistence.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🛠️ Technology Stack
+
+* **Framework:** Next.js (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS
+* **Theming:** Dark/Light mode support (via `next-themes` or native Tailwind)
+* **Internationalization (i18n):** Structural configuration for English (EN) and Spanish (ES)
+
+---
+
+## 🏗️ Frontend Architecture
+
+The frontend is divided into two primary logical zones using Next.js Route Groups. Global components are strictly limited; instead, components are scoped locally to their respective routes.
+
+* **`/(public)`:** Contains the Landing Page (`/`), Sign In (`/signin`), and Sign Up (`/signup`).
+* **`/(private)`:** Contains the authenticated Dashboard (`/dashboard`).
+
+### Strict Rendering Pattern
+
+Every route follows a rigid 3-part file structure to separate metadata, layout orchestration, and UI components:
+
+```plaintext
+/app/(sector)/route-name/
+├── page.tsx               # 1. ONLY defines and exports Metadata. Renders the View.
+├── ViewName.tsx           # 2. Defines page layout and orchestrates local components.
+└── /components/           # 3. Contains ONLY components specific to this route.
+    ├── HeroSection.tsx
+    ├── FeatureSection.tsx
+    └── ...
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Backend Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The backend follows a microservices approach organized by Features/Objects. It separates routing, orchestration, and business logic into distinct layers.
 
-## Learn More
+### Separation of Concerns
 
-To learn more about Next.js, take a look at the following resources:
+* **`routes.ts`**: Defines the HTTP method (GET, POST), applies middleware (auth/validation), and connects the request to the controller.
+* **`endpoints.ts`**: The controller. It orchestrates the logic by calling services, but does not perform the heavy lifting itself.
+* **`services/`**: Pure functions containing the core business logic (e.g., calling an LLM or a database).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Directory Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```plaintext
+/server (or /src/server)
+├── /features/
+│   └── /chatbot/
+│       ├── routes.ts      # HTTP definitions and middleware
+│       └── endpoints.ts   # Request/response orchestration
+├── /services/
+│   ├── /ai/               # Functions for LLM interaction
+│   └── /database/         # Mocked data returns (Pending real DB)
+└── /utils/
+    └── /local_functions/  # Shared utilities (parsers, formatters, etc.)
 
-## Deploy on Vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Node.js 18.x or higher
+* npm, pnpm, or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <https://github.com/TuPaPyCamba/ai_chatbot_db_querying>
+cd <ai_chatbot_db_querying>
+
+```
+
+
+2. Install dependencies:
+```bash
+pnpm install
+
+```
+
+
+3. Run the development server:
+```bash
+pnpm run dev
+
+```
+
+
+4. Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) with your browser to see the result.
+
+---
+
+## 📋 Current Implementation Roadmap
+
+* [x] **Initialization:** Next.js + Tailwind + TypeScript configured.
+* [x] **Theming:** Dark/Light mode implemented.
+* [x] **i18n:** Basic EN/ES dictionaries established.
+* [x] **Public Sector:** Landing page, Sign-in, and Sign-up routes generated following the strict pattern.
+* [x] **Private Sector:** Dashboard layout created (Sidebar for history + Main chat window).
+* [x] **Mocked Auth:** Simulated login flow (redirects to `/dashboard` upon mock success).
+* [x] **Backend Skeleton:** `/server` folders generated.
+* [x] **Mocked DB:** Dummy JSON services implemented in `/services/database`.
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+```
+
+```
