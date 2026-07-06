@@ -41,14 +41,14 @@ export default function HeroSection() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-16">
           <Link
-            href="/signup"
+            href="/dashboard"
             className="w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-lg shadow-purple-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center space-x-2"
           >
             <span>{t.landing.getStarted}</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
-            href="/signin"
+            href="/dashboard"
             className="w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold border border-gray-300 dark:border-neutral-800 hover:bg-gray-50 dark:hover:bg-neutral-900 transition-colors flex items-center justify-center space-x-2"
           >
             <MessageCircle className="w-4 h-4 text-purple-600 dark:text-purple-400" />

@@ -6,7 +6,7 @@ if (!connectionString) {
   console.warn("WARNING: DATABASE_URL environment variable is not defined.");
 }
 
-export const pool = new Pool({
+const pool = new Pool({
   connectionString,
   ssl: connectionString?.includes("supabase") ? { rejectUnauthorized: false } : undefined,
 });

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useI18n } from "@/app/providers";
 import {
@@ -12,21 +11,15 @@ import {
   Moon,
   Languages,
   User,
-  LogOut,
   AlertTriangle,
 } from "lucide-react";
-
-interface ViewProps {
-  user: { name: string; email: string };
-}
 
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
 
-export default function View({ user }: ViewProps) {
-  const router = useRouter();
+export default function View() {
   const { theme, setTheme } = useTheme();
   const { lang, t, setLang } = useI18n();
 
@@ -112,17 +105,7 @@ export default function View({ user }: ViewProps) {
     }
   };
 
-  const handleLogout = async () => {
-    try {
-      const res = await fetch("/api/auth/logout", { method: "POST" });
-      if (res.ok) {
-        router.refresh();
-        router.push("/");
-      }
-    } catch (err) {
-      console.error("Failed to log out", err);
-    }
-  };
+
 
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-gray-50 dark:bg-neutral-950 transition-colors duration-200">
@@ -196,26 +179,19 @@ export default function View({ user }: ViewProps) {
             </button>
           </div>
 
-          {/* User Profile Info */}
+          {/* App Info */}
           <div className="flex items-center space-x-3 p-2 rounded-xl bg-white dark:bg-neutral-900 border border-gray-200/50 dark:border-neutral-800/50">
             <div className="w-9 h-9 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
               <User className="w-4 h-4" />
             </div>
             <div className="min-w-0 flex-1">
               <div className="text-xs font-bold text-gray-800 dark:text-gray-200 truncate">
-                {user.name}
+                {t.navbar.title}
               </div>
               <div className="text-[10px] text-gray-400 truncate leading-none mt-0.5">
-                {user.email}
+                Powered by Groq & Llama-3
               </div>
             </div>
-            <button
-              onClick={handleLogout}
-              className="p-1.5 rounded-lg hover:bg-red-500/10 text-gray-400 hover:text-red-500 transition-colors shrink-0"
-              title={t.dashboard.logoutButton}
-            >
-              <LogOut className="w-4 h-4" />
-            </button>
           </div>
         </div>
       </aside>

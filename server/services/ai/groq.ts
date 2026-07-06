@@ -30,10 +30,8 @@ UNDER NO CIRCUMSTANCES should you output raw text tags like \`<function=execute_
 Do not write out the tool call in plain text. Just invoke the tool natively. Confirm once you have updated the System Prompt text.
 `;
 
-export type MessageRole = "user" | "assistant" | "system" | "tool";
-
-export interface ChatMessage {
-  role: MessageRole;
+interface ChatMessage {
+  role: "user" | "assistant" | "system" | "tool";
   content: string | null;
   name?: string;
   tool_call_id?: string;

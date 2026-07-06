@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useI18n } from "@/app/providers";
@@ -9,20 +9,10 @@ import { Sun, Moon, Languages, MessageSquareCode, ArrowRight } from "lucide-reac
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const { lang, t, setLang } = useI18n();
-  const [mounted, setMounted] = useState(false);
-  const [user, setUser] = useState<{ name: string } | null>(null);
+  const [mounted, setMounted] = React.useState(false);
 
-  // Avoid hydration mismatch by waiting for mount
-  useEffect(() => {
+  React.useEffect(() => {
     setMounted(true);
-    fetch("/api/auth/me")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.user) {
-          setUser(data.user);
-        }
-      })
-      .catch(() => {});
   }, []);
 
   const toggleLang = () => {
@@ -65,34 +55,15 @@ export default function Navbar() {
             </button>
           )}
 
-          {/* Auth Action */}
+          {/* Dashboard Link */}
           {mounted && (
-            <>
-              {user ? (
-                <Link
-                  href="/dashboard"
-                  className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 rounded-xl shadow-sm transition-all flex items-center space-x-1"
-                >
-                  <span>{t.navbar.dashboard}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              ) : (
-                <div className="flex items-center space-x-2">
-                  <Link
-                    href="/signin"
-                    className="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-                  >
-                    {t.navbar.signin}
-                  </Link>
-                  <Link
-                    href="/signup"
-                    className="px-4 py-2 text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 rounded-xl shadow-sm hover:shadow-purple-500/10 transition-all"
-                  >
-                    {t.navbar.signup}
-                  </Link>
-                </div>
-              )}
-            </>
+            <Link
+              href="/dashboard"
+              className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 rounded-xl shadow-sm transition-all flex items-center space-x-1"
+            >
+              <span>{t.navbar.dashboard}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           )}
         </div>
       </div>
